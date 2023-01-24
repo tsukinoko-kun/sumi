@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+}
+
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+    color-scheme: dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+:root,
+body,
+#app {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    inset: 0;
+}
+
+#app {
+    display: grid;
+    grid-template-areas:
+        "editor visual"
+        "editor log";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    height: 100vh;
+    width: 100vw;
+
+    > *:first-child {
+        grid-area: editor;
+    }
+
+    .visual {
+        grid-area: visual;
+        position: relative;
+        &__canvas {
+            position: absolute;
+            display: block;
+            height: 512px;
+            width: 512px;
+            inset: 0;
+            background-color: rebeccapurple;
+            // object-fit: contain;
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    .log {
+        grid-area: log;
+        white-space: pre-wrap;
+    }
+}
