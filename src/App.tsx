@@ -46,7 +46,7 @@ const App = () => {
 
     if (!hlsl) {
         (async () => {
-            const resp = await fetch("/types/HLSL.ts");
+            const resp = await fetch("./types/HLSL.ts");
             const text = await resp.text();
             setHlsl(text);
         })();
